@@ -11,38 +11,38 @@
 使用泰勒展开法，对于物理量 $\phi(x)$，有：
 
 $$
-\phi(x)=\phi(x_i)+\sum\limits_{i=1}^n\dfrac{(x-x_i)^n}{i!}\left(\dfrac{\part^i\phi}{\part x^i}\right)_i+H
+\phi(x)=\phi(x_i)+\sum\limits_{i=1}^n\dfrac{(x-x_i)^n}{i!}\left(\dfrac{\partial^i\phi}{\partial x^i}\right)_i+H
 $$
 
 在 $x_{i+1}$ 处，有：
 
 $$
-\left(\dfrac{\part\phi}{\part x}\right)_i=\\\dfrac{\phi_{i+1}-\phi_i}{x_{i+1}-x_i}-\dfrac{x_{i+1}-x_i}2\left(\dfrac{\part^2\phi}{\part x^2}\right)_i-\dfrac{(x_{i+1}-x_i)^2}6\left(\dfrac{\part^3\phi}{\part x^3}\right)_i+H\tag{1}
+\left(\dfrac{\partial\phi}{\partial x}\right)_i=\\\dfrac{\phi_{i+1}-\phi_i}{x_{i+1}-x_i}-\dfrac{x_{i+1}-x_i}2\left(\dfrac{\partial^2\phi}{\partial x^2}\right)_i-\dfrac{(x_{i+1}-x_i)^2}6\left(\dfrac{\partial^3\phi}{\partial x^3}\right)_i+H\tag{1}
 $$
 
 **前向差分**：
 
 $$
-\left(\dfrac{\part\phi}{\part x}\right)_i\approx\dfrac{\phi_{i+1}-\phi_i}{x_{i+1}-x_i}
+\left(\dfrac{\partial\phi}{\partial x}\right)_i\approx\dfrac{\phi_{i+1}-\phi_i}{x_{i+1}-x_i}
 $$
 
 在 $x_{i-1}$ 处，有：
 
 $$
-\left(\dfrac{\part\phi}{\part x}\right)_i=\\\dfrac{\phi_{i}-\phi_{i-1}}{x_{i}-x_{i-1}}+\dfrac{x_{i}-x_{i-1}}2\left(\dfrac{\part^2\phi}{\part x^2}\right)_i-\dfrac{(x_{i}-x_{i-1})^2}6\left(\dfrac{\part^3\phi}{\part x^3}\right)_i+H\tag{2}
+\left(\dfrac{\partial\phi}{\partial x}\right)_i=\\\dfrac{\phi_{i}-\phi_{i-1}}{x_{i}-x_{i-1}}+\dfrac{x_{i}-x_{i-1}}2\left(\dfrac{\partial^2\phi}{\partial x^2}\right)_i-\dfrac{(x_{i}-x_{i-1})^2}6\left(\dfrac{\partial^3\phi}{\partial x^3}\right)_i+H\tag{2}
 $$
 
 **后向差分**：
 
 $$
-\left(\dfrac{\part\phi}{\part x}\right)_i\approx\dfrac{\phi_{i}-\phi_{i-1}}{x_{i}-x_{i-1}}
+\left(\dfrac{\partial\phi}{\partial x}\right)_i\approx\dfrac{\phi_{i}-\phi_{i-1}}{x_{i}-x_{i-1}}
 $$
 
 结合 $(1),(2)$ 可得**中心差分**：
 
 $$
-\left(\dfrac{\part\phi}{\part x}\right)_i=\\
-\dfrac{\phi_{i+1}-\phi_{i-1}}{x_{i+1}-x_{i-1}}-\dfrac{(x_{i+1}-x_i)^2-(x_i-x_{i-1})^2}{2(x_{i+1}-x_{i-1})}\left(\dfrac{\part^2\phi}{\part x^2}\right)_i\\-\dfrac{(x_{i+1}-x_i)^3-(x_{i}-x_{i-1})^3}{6(x_{i+1}-x_{i-1})}\left(\dfrac{\part^3\phi}{\part x^3}\right)_i+H\\\approx\\
+\left(\dfrac{\partial\phi}{\partial x}\right)_i=\\
+\dfrac{\phi_{i+1}-\phi_{i-1}}{x_{i+1}-x_{i-1}}-\dfrac{(x_{i+1}-x_i)^2-(x_i-x_{i-1})^2}{2(x_{i+1}-x_{i-1})}\left(\dfrac{\partial^2\phi}{\partial x^2}\right)_i\\-\dfrac{(x_{i+1}-x_i)^3-(x_{i}-x_{i-1})^3}{6(x_{i+1}-x_{i-1})}\left(\dfrac{\partial^3\phi}{\partial x^3}\right)_i+H\\\approx\\
 \dfrac{\phi_{i+1}-\phi_{i-1}}{x_{i+1}-x_{i-1}}
 $$
 
@@ -83,24 +83,24 @@ $$
 当 $x=x_i$ 时，代入可得：
 
 $$
-\left(\dfrac{\part\phi}{\part x}\right)_i=\\
+\left(\dfrac{\partial\phi}{\partial x}\right)_i=\\
 \dfrac{\phi_{i+1}(\Delta x_i)^2-\phi_{i-1}(\Delta x_{i+1})^2+\phi_i[(\Delta x_{i+1})^2-(\Delta x_i)^2]}{\Delta x_{i+1}\Delta x_i(\Delta x_i+\Delta x_{i+1})}\tag{3}
 $$
 
 对于二阶导数：
 
 $$
-\left(\dfrac{\part^2\phi}{\part x^2}\right)_i\approx\dfrac{\left(\dfrac{\part\phi}{\part x}\right)_{i+1}-\left(\dfrac{\part\phi}{\part x}\right)_i}{x_{i+1}-x_i}\tag{4}
+\left(\dfrac{\partial^2\phi}{\partial x^2}\right)_i\approx\dfrac{\left(\dfrac{\partial\phi}{\partial x}\right)_{i+1}-\left(\dfrac{\partial\phi}{\partial x}\right)_i}{x_{i+1}-x_i}\tag{4}
 $$
 
 $$
-\left(\dfrac{\part^2\phi}{\part x^2}\right)_i\approx\dfrac{\left(\dfrac{\part\phi}{\part x}\right)_{i}-\left(\dfrac{\part\phi}{\part x}\right)_{i-1}}{x_{i}-x_{i-1}}\tag{5}
+\left(\dfrac{\partial^2\phi}{\partial x^2}\right)_i\approx\dfrac{\left(\dfrac{\partial\phi}{\partial x}\right)_{i}-\left(\dfrac{\partial\phi}{\partial x}\right)_{i-1}}{x_{i}-x_{i-1}}\tag{5}
 $$
 
 结合 $(3),(4),(5)$ 使用中心差分：
 
 $$
-\left(\dfrac{\part^2\phi}{\part x^2}\right)_i\\
+\left(\dfrac{\partial^2\phi}{\partial x^2}\right)_i\\
 \approx\dfrac{\phi_{i+1}(x_i-x_{i-1})+\phi_{i-1}(x_{i+1}-x_i)-\phi_i(x_{i+1}-x_{i-1})}{\frac12(x_{i+1}-x_{i-1})(x_{i+1}-x_i)(x_i-x_{i-1})}
 $$
 
@@ -109,10 +109,10 @@ $$
 一维定常对流扩散方程：
 
 $$
-\dfrac{\part \rho u\phi}{\partial x}=\dfrac{\partial}{\part x}\left(\Gamma\dfrac{\part \phi}{\part x}\right)
+\dfrac{\partial \rho u\phi}{\partial x}=\dfrac{\partial}{\partial x}\left(\Gamma\dfrac{\partial \phi}{\partial x}\right)
 $$
 
-$\Gamma$：扩散系数. $\dfrac{\part\rho u}{\part x}$：对流速度.
+$\Gamma$：扩散系数. $\dfrac{\partial\rho u}{\partial x}$：对流速度.
 
 平面网格上的五个位置 $P,N,E,S,W$：
 
@@ -125,7 +125,7 @@ $\Gamma$：扩散系数. $\dfrac{\part\rho u}{\part x}$：对流速度.
 对扩散项做中心差分，有：
 
 $$
-\left(\Gamma\dfrac{\part\phi}{\part x}\right)_{i+\frac12}\approx\Gamma\dfrac{\phi_{i+1}-\phi_i}{x_{i+1}-x_i}\\
-\left(\Gamma\dfrac{\part\phi}{\part x}\right)_{i-\frac12}\approx\Gamma\dfrac{\phi_{i}-\phi_{i-1}}{x_i-x_{i-1}}
+\left(\Gamma\dfrac{\partial\phi}{\partial x}\right)_{i+\frac12}\approx\Gamma\dfrac{\phi_{i+1}-\phi_i}{x_{i+1}-x_i}\\
+\left(\Gamma\dfrac{\partial\phi}{\partial x}\right)_{i-\frac12}\approx\Gamma\dfrac{\phi_{i}-\phi_{i-1}}{x_i-x_{i-1}}
 $$
 
