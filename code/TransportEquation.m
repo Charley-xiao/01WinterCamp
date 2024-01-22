@@ -9,7 +9,7 @@ phi_0 = 0;
 phi_L = 1;
 num_nodes = 50;
 dt = 0.02;
-max_t = 4;
+max_t = 2;
 
 dx = L / num_nodes;
 x = 0:dx:L;
